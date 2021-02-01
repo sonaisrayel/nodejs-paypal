@@ -1,0 +1,27 @@
+{
+  "name": "nodejs-paypal",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sonaisrayel/nodejs-paypal.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sonaisrayel/nodejs-paypal/issues"
+  },
+  "homepage": "https://github.com/sonaisrayel/nodejs-paypal#readme",
+  "dependencies": {
+    "config": "^3.3.3",
+    "ejs": "^3.1.5",
+    "paypal-rest-sdk": "^1.8.1"
+  }
+}
