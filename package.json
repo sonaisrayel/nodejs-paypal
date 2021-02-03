@@ -2,11 +2,10 @@
   "name": "nodejs-paypal",
   "version": "1.0.0",
   "description": "",
-  "main": "src/server.js",
+  "main": "server.js",
   "scripts": {
     "start": "node src/server.js",
-    "dev": "nodemon src/server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nodemon src/server.js"
   },
   "repository": {
     "type": "git",
@@ -20,8 +19,10 @@
   },
   "homepage": "https://github.com/sonaisrayel/nodejs-paypal#readme",
   "dependencies": {
+    "@paypal/checkout-server-sdk": "^1.0.2",
     "config": "^3.3.3",
     "ejs": "^3.1.5",
+    "express": "^4.17.1",
     "paypal-rest-sdk": "^1.8.1"
   }
 }
