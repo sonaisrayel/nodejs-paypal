@@ -1,10 +1,13 @@
 {
     "app": {
-        "port": 4000
+        "port": 4000,
+        "host": "http://localhost"
     },
-    "paypal": {
-        "mode":"sandbox",
-        "client_id": "ATobzEeUOBBW_2hFHMx2t-KcYQ0g8B0apiatpdlaV4ghYWkcHEvLx2k7YDBfKK30DfRdCkCgM2Dk4_iY",
-        "client_secret": "EMbRdwHGUJzWf9ZamuekLfGXadd7H_dY2tuOka4RjUPoFkybKU-P0tAliS7pXncLRZGkr5_kWqMkBsnG"
+    "paypalConfig": {
+        "paypal": {
+            "mode": "sandbox",
+            "client_id": "ATobzEeUOBBW_2hFHMx2t-KcYQ0g8B0apiatpdlaV4ghYWkcHEvLx2k7YDBfKK30DfRdCkCgM2Dk4_iY",
+            "client_secret": "EMbRdwHGUJzWf9ZamuekLfGXadd7H_dY2tuOka4RjUPoFkybKU-P0tAliS7pXncLRZGkr5_kWqMkBsnG"
+        }
     }
 }
