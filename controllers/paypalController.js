@@ -6,9 +6,7 @@ const paypalConfig = config.get('paypalConfig').paypal;
 paypal.configure(paypalConfig)
 
 async function pay(req, res) {
-    const { name, sku, price, currency, quantity, total, description } = req.query;
-
-    var create_payment_json = {
+    const create_payment_json = {
         "intent": "sale",
         "payer": {
             "payment_method": "paypal"
@@ -20,18 +18,17 @@ async function pay(req, res) {
         "transactions": [{
             "item_list": {
                 "items": [{
-                    "name": "item",
-                    "sku": "item",
-                    "price": "1.00",
+                    "name": 'SH100 WARM QUECHUA',
+                    "price": "5.00",
                     "currency": "USD",
                     "quantity": 1
                 }]
             },
             "amount": {
                 "currency": "USD",
-                "total": "1.00"
+                "total": "5.00"
             },
-            "description": "This is the payment description."
+            "description": "БОТИНКИ ЗИМНИЕ МУЖСКИЕ ЧЕРНЫЕ SH100 WARM QUECHUA"
         }]
     };
 
@@ -51,4 +48,32 @@ async function pay(req, res) {
 
 }
 
-module.exports = { pay };
+
+async function success(req, res) {
+    const { PayerID, paymentId } = req.query
+
+    const execute_payment_json = {
+        "payer_id": PayerID,
+        "transactions": [{
+            "amount": {
+                "currency": "USD",
+                "total": "5.00"
+            }
+        }]
+
+    };
+    paypal.payment.execute(paymentId, execute_payment_json, function (error, payment) {
+        if (error) {
+            console.error(error);
+        } else {
+            if (payment.state == 'approved') {
+                res.send('Success');
+            } else {
+                res.send('payment not successful');
+            }
+        }
+    });
+
+}
+
+module.exports = { pay, success };
