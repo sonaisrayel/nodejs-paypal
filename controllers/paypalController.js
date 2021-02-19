@@ -3,7 +3,7 @@ const port = config.get('app.port');
 const host = config.get('app.host');
 const paypal = require('paypal-rest-sdk');
 const paypalConfig = config.get('paypalConfig').paypal;
-paypal.configure(paypalConfig)
+paypal.configure(paypalConfig);
 
 async function pay(req, res) {
     const create_payment_json = {
@@ -62,6 +62,7 @@ async function success(req, res) {
         }]
 
     };
+
     paypal.payment.execute(paymentId, execute_payment_json, function (error, payment) {
         if (error) {
             console.error(error);
